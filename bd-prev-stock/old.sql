@@ -63,3 +63,14 @@
  --   REFERENCES Plan (idPlan)
   --  ON DELETE NO ACTION
 --);
+
+
+CREATE TABLE IF NOT EXISTS AccountControllerUserAccountPlan(
+  idAccountController integer NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  fk_User_idUser int NOT NULL,
+  fk_Account_idAccount int NOT NULL,
+  fk_Plan_idPlan int NOT NULL,
+  FOREIGN KEY(fk_User_idUser) REFERENCES User (cpf)  ON DELETE RESTRICT,
+  FOREIGN KEY(fk_Account_idAccount)  REFERENCES Account (idAccount)  ON DELETE NO ACTION,
+  FOREIGN KEY (fk_Plan_idPlan)  REFERENCES Plan (idPlan)  ON DELETE NO ACTION
+);
